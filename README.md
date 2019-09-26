@@ -6,6 +6,10 @@ OnyxLocker is a **proof of concept** ransomware writen in the C# language using 
 * XXTEA algorithm
 * Classes should be easily swappable due to the use of interfaces
 
+## Requirements
+* .NET 4.5.2
+* I used visual studio 2019, not sure on how it loads on other versions but you should be fine.
+
 ## Todo
 * Send data to a webserver, e.g the encryption keys
 * Test on other platforms
