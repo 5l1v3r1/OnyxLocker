@@ -9,6 +9,12 @@ namespace OnyxLocker.Classes
         private string FileName { get; }
         private int MessageCount { get; }
 
+        /// <summary>
+        /// Provides function to write the recovery instructions to a few set location
+        /// </summary>
+        /// <param name="message">Recovery instructions</param>
+        /// <param name="fileName">Base filename</param>
+        /// <param name="messageCount">Message count</param>
         public MessageWriter(string message, string fileName, int messageCount)
         {
             Message = message;
@@ -16,6 +22,9 @@ namespace OnyxLocker.Classes
             MessageCount = messageCount;
         }
 
+        /// <summary>
+        /// Writes the given message to the desktop
+        /// </summary>
         public void WriteMessageToDesktop()
         {
             var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);

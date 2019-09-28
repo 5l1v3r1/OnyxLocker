@@ -13,6 +13,10 @@ namespace OnyxLocker
             FileParser = fileParser;
         }
 
+        /// <summary>
+        /// Recursive function which attempts to browse all directories / files starting from a base directory
+        /// </summary>
+        /// <param name="startDirectory"></param>
         public void TraverseDirectories(string startDirectory)
         {
             try
@@ -46,6 +50,10 @@ namespace OnyxLocker
             }
         }
 
+        /// <summary>
+        /// Processes the file
+        /// </summary>
+        /// <param name="filePath"></param>
         private void ProcessFile(string filePath)
         {
             if (IsTargetFile(filePath))
@@ -54,6 +62,11 @@ namespace OnyxLocker
             }
         }
 
+        /// <summary>
+        /// Checks if the file is a target file
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         private bool IsTargetFile(string filePath)
         {
             return !filePath.Contains("recycle") && FileChecker.IsTargetFile(filePath);

