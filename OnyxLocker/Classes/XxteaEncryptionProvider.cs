@@ -44,15 +44,7 @@ namespace OnyxLocker.Classes
         /// <returns></returns>
         public byte[] EncryptBytes(byte[] fileBytes, byte[] encryptionKey)
         {
-            try
-            {
-                var encryptedFileBytes = Encrypt(fileBytes, encryptionKey);
-                return encryptedFileBytes;
-            }
-            catch
-            {
-                return null;
-            }
+            throw new NotImplementedException();
         }
 
         private const UInt32 delta = 0x9E3779B9;
